@@ -14,7 +14,7 @@ integers, with n being a size they can set initially but remains
 static once set.
 
 
-Architectural Details:
+###Architectural Details:###
 
 - Implemented using a circular buffer to store the ints, and head
 and tail ints to keep track of which indices should be popped from
@@ -34,7 +34,8 @@ potential errors, like running out of dynamic mem when allocating
 the new array, or trying to dequeue an empty list.
 
 
-Future Updates:
+###Future Updates:###
+
 - [ ] create front / enqueue / dequeue interface with only those functions,
 standardizing its functionality to better fit the C++ stdlib data 
 structures. Also gets rid of that awkward case where the client is popping 
