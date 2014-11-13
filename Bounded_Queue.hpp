@@ -2,32 +2,12 @@
  *      Bounded_Queue.hpp
  *      
  *      programmed by Dorian Pistilli
- *      Last edit on 10/28/14
- *      Language used: C++
+ *      Last edit on 11/13/14
  *
- *      A bounded queue data structure designed for the KPCB Fellows
- *      application. It offers the client a bounded queue for storing "n"
- *      integers, with n being a size they can set initially but remains
- *      static once set.
- *
- *      Implemented using a circular buffer to store the ints, and head
- *      and tail ints to keep track of which indices should be popped from
- *      or pushed to next.
- *      
- *      A circular buffer was chosen over a linked list because there's 
- *      less overhead (large L.Lists are storage heavy w/ Node pointers)
- *      and because it offers O(1) enQ/deQ operations vs O(n) for linked
- *      list.
- *
- *      I had some issues with one of the requirements in the spec that the
- *      applicant refrain from including any libraries, and relying solely
- *      on primitive types. Although its understandable that the use of
- *      pre-built data structures would defeat the challenge, it also puts
- *      restrictions on effective programming practices. In the end, I
- *      decided to use the iostream and exception libraries. I found this
- *      necessary, because without them I could not properly handle several
- *      potential errors, like running out of dynamic mem when allocating
- *      the new array, or trying to dequeue an empty list.
+ *      Header file for the Bounded_Queue class. Offers the client
+ *      queue/dequeue functions for storing / removing integers from the
+ *      queue. The queue is bounded, meaning its length is static and set
+ *      upon initialization.
  *
  */ 
 
@@ -36,19 +16,44 @@
 
 class Bounded_Queue {
         public:
+                /* * * * * * * * * * * * * * * * * * * * * * */
+                /*          Constructor / Destructor         */
+                /* * * * * * * * * * * * * * * * * * * * * * */
+                
+                // initializes queue to hold a given static # of ints
                 Bounded_Queue(int q_size);
+
+                // handles garbage collection
                 ~Bounded_Queue();
 
+                /* * * * * * * * * * * * * * * * * * * * * * */
+                /*         Queue Manipulation / Access       */
+                /* * * * * * * * * * * * * * * * * * * * * * */
+                
+                // stores given int in queue. returns 1 on success, else 0
                 bool enqueue(int input);
+                // removes and returns int from queue in FIFO order
                 int dequeue();
         private:
+
+                /* * * * * * * * * * * * * * * * * * * * * * */
+                /*              Helper Functions             */
+                /* * * * * * * * * * * * * * * * * * * * * * */
+
+                // return 1 if "is_condition", else 0
                 bool is_full();
                 bool is_empty();
 
+                // getters & setters
                 void set_in_array(int val, int index);
                 int get_from_array(int index);
 
-                int max_size, curr_size, head, tail;
+                /* * * * * * * * * * * * * * * * * * * * * * */
+                /*             Pvt Member Variables          */
+                /* * * * * * * * * * * * * * * * * * * * * * */
+
+                int max_size, curr_size; 
+                int head, tail;
                 int* queue;
 };
 

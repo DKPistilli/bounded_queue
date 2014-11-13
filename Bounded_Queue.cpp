@@ -1,8 +1,8 @@
 /*      
  *      Bounded_Queue.cpp
  *
- *      Dorian Pistilli 
- *      dkpistilli@gmail.com
+ *      programmed by Dorian Pistilli
+ *      Last edit on 11/13/14
  *
  *      Function Implementation File. Details and ADT architecture are 
  *      given in more depth in both Bounded_Queue.hpp and README.md
