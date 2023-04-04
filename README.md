@@ -3,7 +3,6 @@ bounded_queue
 
 programmer: Dorian Pistilli
 
-last edit: 13 Nov, 2014
 
 language used: C++
 
